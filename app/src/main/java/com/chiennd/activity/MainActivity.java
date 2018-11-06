@@ -1,4 +1,4 @@
-package com.chiennd.android;
+package com.chiennd.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

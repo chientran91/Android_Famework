@@ -1,4 +1,4 @@
-package com.chiennd.android;
+package com.chiennd.activity;
 
 import org.junit.Test;
 
