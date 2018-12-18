@@ -1,4 +1,4 @@
-package com.chiennd.activity;
+package com.chiennd.demo;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
