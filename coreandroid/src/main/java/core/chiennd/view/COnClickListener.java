@@ -1,4 +1,4 @@
-package core.chiennd.View;
+package core.chiennd.view;
 
 import android.os.SystemClock;
 import android.view.View;
