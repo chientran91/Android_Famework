@@ -34,4 +34,9 @@ public class Logger {
             Log.v(TAG, msg);
         }
     }
+    public static void i(String TAG, String msg) {
+        if (BuildConfig.DEBUG_MODE) {
+            Log.i(TAG, msg);
+        }
+    }
 }
