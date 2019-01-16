@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
+        android:name=".app.CApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -17,9 +18,14 @@
             </intent-filter>
         </activity>
         <provider
-            android:name=".database.provider.CContentProvider"
+            android:name=".app.CContentProvider"
             android:authorities="com.chiennd.demo.provider"
             android:enabled="true" />
+        <receiver android:name=".app.CBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.chiennd" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

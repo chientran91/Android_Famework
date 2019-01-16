@@ -26,6 +26,7 @@ public class TableInfor {
     }
 
     public interface User extends CBaseColumns {
+        String ID_OWNER = "_id_owner";
 
         String FIRST_NAME = "_first_name";
 

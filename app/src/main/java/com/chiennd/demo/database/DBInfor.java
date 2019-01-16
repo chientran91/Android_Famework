@@ -1,7 +1,6 @@
 package com.chiennd.demo.database;
 
 import android.content.Context;
-import android.provider.BaseColumns;
 
 public class DBInfor {
     public static final String NAME = "com_chiennd_demo.db";
