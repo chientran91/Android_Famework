@@ -5,12 +5,12 @@ import android.util.Log;
 import com.chiennd.demo.BuildConfig;
 
 public class Logger {
-    public static void e(Object object)
-    {
+    public static void e(String TAG, Object object) {
         if (BuildConfig.DEBUG_MODE) {
-            Log.e("Mi6App", "test: " + object);
+            Log.e(TAG, object.toString());
         }
     }
+
     public static void e(String TAG, String msg) {
         if (BuildConfig.DEBUG_MODE) {
             Log.e(TAG, msg);
@@ -34,6 +34,7 @@ public class Logger {
             Log.v(TAG, msg);
         }
     }
+
     public static void i(String TAG, String msg) {
         if (BuildConfig.DEBUG_MODE) {
             Log.i(TAG, msg);

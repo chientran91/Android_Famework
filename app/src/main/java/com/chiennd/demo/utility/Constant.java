@@ -7,6 +7,7 @@ public interface Constant {
 
     interface IntentKey {
         String OBJECT = "object";
+        String OBJECTS = "objects";
         String TYPE = "type";
     }
 
@@ -15,6 +16,23 @@ public interface Constant {
         private String type;
 
         TypeUser(String type) {
+            this.type = type;
+        }
+
+        public String getType() {
+            return type;
+        }
+
+        public void setType(String type) {
+            this.type = type;
+        }
+    }
+
+    enum TypeLogger {
+        LIFECYCLE("lifecycle");
+        private String type;
+
+        TypeLogger(String type) {
             this.type = type;
         }
 
