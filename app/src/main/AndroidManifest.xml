@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.chiennd.demo">
+    package="com.chiennd.ex">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
-        android:name=".app.CApplication"
+        android:name="com.chiennd.ex.app.CApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.chiennd.demo.activity.MainActivity">
+        <activity android:name="com.chiennd.ex.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <provider
-            android:name=".app.CContentProvider"
-            android:authorities="com.chiennd.demo.provider"
+            android:name="com.chiennd.ex.app.CContentProvider"
+            android:authorities="com.chiennd.ex.provider"
             android:enabled="true" />
-        <receiver android:name=".app.CBroadcastReceiver">
+        <receiver android:name="com.chiennd.ex.app.CBroadcastReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.chiennd" />
             </intent-filter>
