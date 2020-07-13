@@ -2,7 +2,6 @@ package com.ch.nd.utility;
 
 public interface Constant {
     interface BroadcastAction {
-        String CHIENND = "android.intent.action.chiennd";
     }
 
     interface IntentKey {
@@ -42,6 +41,26 @@ public interface Constant {
 
         public void setType(String type) {
             this.type = type;
+        }
+    }
+
+    enum Directory {
+
+        EXTERNAL_STORAGE_FOLDER_APP("ch_nd"), TEMP_AVATAR("temp_avatar"), TEMP_VIDEO("temp_video"), TEMP_AUDIO("temp_audio"),
+        VOICE_CHAT("voice_chat"), IMAGE_CHAT("image_chat"), QR_CODE("qr_code"), BACKUP("backup");
+
+        private String name;
+
+        Directory(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
         }
     }
 }
