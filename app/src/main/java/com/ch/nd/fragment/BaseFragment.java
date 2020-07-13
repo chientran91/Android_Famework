@@ -1,17 +1,19 @@
 package com.ch.nd.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 public abstract class BaseFragment extends CoreFragment {
 
     @LayoutRes
-    protected abstract int getLayoutResoure();
+    protected abstract int getLayoutResource();
 
     protected abstract void initUI(View rootView);
 
@@ -20,7 +22,7 @@ public abstract class BaseFragment extends CoreFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(getLayoutResoure(), container, false);
+        View view = inflater.inflate(getLayoutResource(), container, false);
         initUI(view);
         return view;
     }

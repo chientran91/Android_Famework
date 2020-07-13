@@ -23,7 +23,7 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
-    protected int getLayoutResoure() {
+    protected int getLayoutResource() {
         return 0;
     }
 

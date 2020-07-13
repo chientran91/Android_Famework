@@ -1,12 +1,17 @@
 package com.ch.nd.activity;
 
-import android.support.annotation.LayoutRes;
+
+import androidx.annotation.LayoutRes;
 
 public abstract class BaseActivity extends CoreActivity {
 
     @LayoutRes
-    protected abstract int getLayoutResoure();
+    protected abstract int getLayoutResource();
 
     protected abstract void bindDataToView();
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
 }
