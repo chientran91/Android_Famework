@@ -2,6 +2,7 @@ package com.ch.nd.utility;
 
 public interface Constant {
     interface BroadcastAction {
+        String CHIEN_ND = "chien_nd";
     }
 
     interface IntentKey {

@@ -6,6 +6,15 @@ import android.text.TextUtils;
 import com.ch.nd.app.CApplication;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
+import java.nio.channels.FileChannel;
+import java.nio.charset.Charset;
+import java.nio.charset.CharsetDecoder;
 
 public class FileUtils {
 
@@ -18,24 +27,24 @@ public class FileUtils {
         return folderApp;
     }
 
-    /**
-     * @param nameDirectory
-     * @return
-     */
-    public static String getDirectoryPath(String nameDirectory) {
-        File dir = new File(CApplication.getInstance().getApplicationContext().getExternalCacheDir() + File.separator + nameDirectory);
-        if (!dir.exists()) {
-            dir.mkdirs();
-        }
-        return dir.getPath();
-    }
-
-    public static File getDirectory(String nameDirectory) {
+    public static File getDirectoryInFolderApp(String nameDirectory) {
         File dir = new File(getFolderApp() + File.separator + nameDirectory);
         if (!dir.exists()) {
             dir.mkdirs();
         }
         return dir;
+    }
+
+    /**
+     * @param nameDirectory
+     * @return
+     */
+    public static String getDirectoryPathInExternalCacheDir(String nameDirectory) {
+        File dir = new File(CApplication.getInstance().getApplicationContext().getExternalCacheDir() + File.separator + nameDirectory);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        return dir.getPath();
     }
 
     public static String getFileExtension(String path) {
@@ -46,6 +55,23 @@ public class FileUtils {
             }
         }
         return "";
+    }
+
+    public static String getFileName(String filePath) {
+        String fileName;
+        if (TextUtils.isEmpty(filePath)) {
+            fileName = null;
+        } else {
+            int position = filePath.lastIndexOf(File.separator);
+            if (position == -1) {
+                return null;
+            }
+            fileName = filePath.substring(position + 1);
+            if (TextUtils.isEmpty(fileName)) {
+                return null;
+            }
+        }
+        return fileName;
     }
 
     public static void purgeDirectory(File dir) {
@@ -64,4 +90,97 @@ public class FileUtils {
         }
     }
 
+    public static boolean copyFile(File srcFile, String savePath) {
+        FileInputStream source = null;
+        FileOutputStream destination = null;
+
+        try {
+            source = new FileInputStream(srcFile);
+            destination = new FileOutputStream(savePath);
+
+            FileChannel sourceFileChannel = source.getChannel();
+            FileChannel destinationFileChannel = destination.getChannel();
+
+            long size = sourceFileChannel.size();
+            sourceFileChannel.transferTo(0, size, destinationFileChannel);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (null != source) source.close();
+                if (null != destination) destination.close();
+                return true;
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+        return false;
+    }
+
+    public static String loadFile(String path) {
+        StringBuilder sb = new StringBuilder();
+        try {
+            File file = new File(path);
+
+            FileInputStream fis = new FileInputStream(file);
+            FileChannel fileChannel = fis.getChannel();
+
+            Charset charset = Charset.forName("UTF-8");
+            CharsetDecoder decoder = charset.newDecoder();
+
+            ByteBuffer buff = ByteBuffer.allocateDirect(1024);
+            CharBuffer charBuff = CharBuffer.allocate(1024);
+            while (fileChannel.read(buff) != -1) {
+                buff.flip();
+                decoder.decode(buff, charBuff, false);
+                charBuff.flip();
+                sb.append(charBuff.toString());
+                buff.clear();
+                charBuff.clear();
+            }
+
+            fis.close();
+
+            fileChannel.close();
+            fis.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+        return sb.toString();
+    }
+
+    private static boolean saveFile(File file, byte[] data) {
+        boolean ret = false;
+        try {
+            FileOutputStream fos = new FileOutputStream(file);
+            FileChannel fileChannel = fos.getChannel();
+
+            ByteBuffer buffer = ByteBuffer.wrap(data);
+
+            while (buffer.hasRemaining()) {
+                fileChannel.write(buffer);
+            }
+
+            fileChannel.close();
+            fos.close();
+            ret = true;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return ret;
+    }
+
+    public static boolean saveFile(String path, byte[] data) {
+        return saveFile(new File(path), data);
+    }
+
+    public static boolean saveFile(String dir, String name, byte[] data) {
+        return saveFile(new File(dir, name), data);
+    }
 }

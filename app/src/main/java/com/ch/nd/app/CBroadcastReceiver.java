@@ -12,7 +12,7 @@ public class CBroadcastReceiver extends BroadcastReceiver {
         switch (intent.getAction()) {
             case Intent.ACTION_BOOT_COMPLETED:
                 break;
-            case Constant.BroadcastAction.CHIENND:
+            case Constant.BroadcastAction.CHIEN_ND:
                 break;
         }
 

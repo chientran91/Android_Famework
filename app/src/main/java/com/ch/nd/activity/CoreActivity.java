@@ -14,12 +14,12 @@ public abstract class CoreActivity extends AppCompatActivity {
 
     protected abstract String getTag();
 
-    protected abstract void init();
+    protected abstract void initData();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        init();
+        initData();
         Logger.d(getTag(), Constant.TypeLogger.LIFECYCLE + " onCreate");
     }
 
