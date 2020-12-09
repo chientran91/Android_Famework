@@ -51,4 +51,7 @@ dependencies {
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation project(':coreandroid')
+    //-- Scroll view behavior
+    implementation 'com.google.android.material:material:1.3.0-alpha04'
+    implementation "androidx.coordinatorlayout:coordinatorlayout:1.1.0"
 }

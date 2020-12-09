@@ -4,22 +4,136 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="@dimen/size_20"
     tools:context="com.ch.nd.activity.MainActivity">
 
+    <ImageView
+        android:id="@+id/imageView_1"
+        android:layout_width="@dimen/size_60"
+        android:layout_height="@dimen/size_60"
+        android:layout_marginLeft="@dimen/size_12"
+        android:layout_marginRight="@dimen/size_12"
+        android:layout_marginBottom="@dimen/size_10"
+        android:background="@color/blue"
+        android:translationZ="@dimen/size_3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textView_1"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
+        android:id="@+id/textView_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/size_12"
+        android:layout_marginTop="@dimen/size_12"
+        android:layout_marginRight="@dimen/size_12"
+        android:background="@color/green"
+        android:padding="@dimen/size_8"
+        android:text="TextView 1"
+        android:textStyle="bold"
+        android:translationZ="@dimen/size_3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_1" />
+
+    <Button
+        android:id="@+id/button_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/size_12"
+        android:layout_marginTop="@dimen/size_12"
+        android:layout_marginRight="@dimen/size_12"
+        android:background="@color/green"
+        android:gravity="center"
+        android:padding="@dimen/size_8"
+        android:text="Button 1"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_1" />
+
+    <ImageView
+        android:id="@+id/imageView_2"
+        android:layout_width="@dimen/size_40"
+        android:layout_height="@dimen/size_40"
+        android:layout_marginLeft="@dimen/size_12"
+        android:layout_marginRight="@dimen/size_12"
+        android:layout_marginBottom="@dimen/size_10"
+        android:background="@color/red"
+        android:translationZ="@dimen/size_3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tv_info" />
+
+    <TextView
+        android:translationZ="@dimen/size_3"
         android:id="@+id/tv_info"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:padding="@dimen/size_16"
-        android:text="Info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/size_12"
+        android:layout_marginTop="@dimen/size_12"
+        android:layout_marginRight="@dimen/size_12"
+        android:background="@color/green"
+        android:backgroundTint="@color/red"
+        android:padding="@dimen/size_8"
+        android:text="Info Company"
         android:textSize="@dimen/text_size_18"
         android:textStyle="bold"
-        android:typeface="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <include layout="@layout/view_empty_white_bottom_toolbar" />
+
+
+    <Button
+        android:id="@+id/button_2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/size_12"
+        android:layout_marginTop="@dimen/size_12"
+        android:layout_marginRight="@dimen/size_12"
+        android:background="@drawable/ripple_button"
+        android:gravity="center"
+        android:padding="@dimen/size_8"
+        android:text="Button 2"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_info" />
+
+
+    <Button
+        android:id="@+id/button_3"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/size_12"
+        android:layout_marginTop="@dimen/size_12"
+        android:layout_marginRight="@dimen/size_12"
+        android:background="@drawable/ripple_button"
+        android:gravity="center"
+        android:padding="@dimen/size_8"
+        android:text="Button 3"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_2" />
+
+    <ImageView
+        android:id="@+id/imageView_3"
+        android:layout_width="@dimen/size_60"
+        android:layout_height="@dimen/size_60"
+        android:layout_marginLeft="@dimen/size_12"
+        android:layout_marginRight="@dimen/size_12"
+        android:layout_marginTop="@dimen/size_12"
+        android:background="@color/blue"
+        android:translationZ="@dimen/size_3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

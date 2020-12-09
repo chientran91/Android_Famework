@@ -8,4 +8,5 @@
     <color name="aqua">#00ffff</color>
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
+    <color name="gray_999">#999999</color>
 </resources>
