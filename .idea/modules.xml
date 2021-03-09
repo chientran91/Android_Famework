@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Android_Famework.iml" filepath="$PROJECT_DIR$/Android_Famework.iml" group="Android_Famework" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="Android_Famework/app" />
-      <module fileurl="file://$PROJECT_DIR$/coreandroid/coreandroid.iml" filepath="$PROJECT_DIR$/coreandroid/coreandroid.iml" group="Android_Famework/coreandroid" />
+      <module fileurl="file://$PROJECT_DIR$/Android_Famework.iml" filepath="$PROJECT_DIR$/Android_Famework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Android_Famework.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Android_Famework.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/coreandroid/Android_Famework.coreandroid.iml" filepath="$PROJECT_DIR$/.idea/modules/coreandroid/Android_Famework.coreandroid.iml" />
     </modules>
   </component>
 </project>

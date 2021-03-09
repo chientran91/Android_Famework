@@ -18,31 +18,48 @@ import java.nio.charset.CharsetDecoder;
 
 public class FileUtils {
 
-    public static String getFolderApp() {
-        String folderApp = Environment.getExternalStorageDirectory() + "/" + Constant.Directory.EXTERNAL_STORAGE_FOLDER_APP;
-        File dir = new File(folderApp);
+    public static File getDirectory(File parent, String name) {
+        File dir = new File(parent + File.separator + name);
         if (!dir.exists()) {
-            dir.mkdirs();
+            dir.mkdir();
         }
-        return folderApp;
+        return dir;
     }
 
-    public static File getDirectoryInFolderApp(String nameDirectory) {
-        File dir = new File(getFolderApp() + File.separator + nameDirectory);
+    public static String getAbsolutePath(File parent, String name) {
+        return getDirectory(parent, name).getAbsolutePath();
+    }
+
+    public static File getExternalStorageDirectory() {
+        String path = Environment.getExternalStorageDirectory() + File.separator + Constant.Directory.EXTERNAL_STORAGE_ENVIRONMENT;
+        File dir = new File(path);
         if (!dir.exists()) {
             dir.mkdirs();
         }
         return dir;
     }
 
-    /**
-     * @param nameDirectory
-     * @return
-     */
-    public static String getDirectoryPathInExternalCacheDir(String nameDirectory) {
-        File dir = new File(CApplication.getInstance().getApplicationContext().getExternalCacheDir() + File.separator + nameDirectory);
+    public static File getDirectoryApp() {
+        return CApplication.getInstance().getExternalFilesDir(null);
+    }
+
+    public static File getTempDirectory(String fileName) {
+        File dir = new File(getDirectoryApp() + File.separator + fileName);
         if (!dir.exists()) {
-            dir.mkdirs();
+            dir.mkdir();
+        }
+        return dir;
+    }
+
+    public static String getAbsolutePathTemp(String fileName) {
+        return getTempDirectory(fileName).getAbsolutePath();
+    }
+
+
+    public static String getAbsolutePathTempImage() {
+        File dir = new File(getDirectoryApp() + File.separator + Constant.Directory.IMAGE);
+        if (!dir.exists()) {
+            dir.mkdir();
         }
         return dir.getPath();
     }

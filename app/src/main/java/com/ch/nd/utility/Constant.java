@@ -47,8 +47,8 @@ public interface Constant {
 
     enum Directory {
 
-        EXTERNAL_STORAGE_FOLDER_APP("ch_nd"), TEMP_AVATAR("temp_avatar"), TEMP_VIDEO("temp_video"), TEMP_AUDIO("temp_audio"),
-        VOICE_CHAT("voice_chat"), IMAGE_CHAT("image_chat"), QR_CODE("qr_code"), BACKUP("backup");
+        EXTERNAL_STORAGE_ENVIRONMENT("ch_nd"), TEMP_AVATAR("temp_avatar"), TEMP_VIDEO("temp_video"), TEMP_AUDIO("temp_audio"),
+        VOICE_CHAT("voice_chat"), IMAGE_CHAT("image_chat"), QR_CODE("qr_code"), BACKUP("backup"), IMAGE("image");
 
         private String name;
 
