@@ -28,8 +28,6 @@ public class BitmapUtils {
         BitmapFactory.Options bmOptions = new BitmapFactory.Options();
         bmOptions.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(photoPath, bmOptions);
-        int photoW = bmOptions.outWidth;
-        int photoH = bmOptions.outHeight;
         int scale = calculateInSampleSize(bmOptions, reqWidth, reqHeight);
         bmOptions.inJustDecodeBounds = false;
         bmOptions.inSampleSize = scale;
